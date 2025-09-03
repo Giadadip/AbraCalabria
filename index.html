@@ -16,7 +16,7 @@
         /* --- Header con effetto magico --- */
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 30px 20px; /* ridotto per avvicinare il menu */
             background: rgba(60,0,80,0.7);
         }
 
@@ -45,8 +45,11 @@
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 20px;
+            padding: 10px 20px; /* ridotto */
             background: rgba(60,0,80,0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
@@ -62,13 +65,19 @@
             transform: translateY(-2px);
         }
 
-        /* --- Sezioni con colori vivaci --- */
         section {
-            padding: 60px 20px;
             max-width: 1200px;
             margin: auto;
         }
 
+        /* --- Intro --- */
+        .intro {
+            text-align: center;
+            font-size: 1.3em;
+            line-height: 1.8em;
+            color: #e0c0ff;
+            padding: 60px 20px;
+        }
 
         /* --- Footer --- */
         footer {
@@ -78,15 +87,19 @@
             color: #ffdd99;
         }
 
-        /* --- Sezione Mappa con immagine magica --- */
+        /* --- Sezione Mappa con immagine magica full page --- */
         .bg-magica {
             position: relative;
-            background: linear-gradient(rgba(46,0,62,0.6), rgba(75,0,115,0.6)), 
-                        url('borgo-magico.jpg') no-repeat center/cover;
+            background: linear-gradient(rgba(46,0,62,0.6), rgba(75,0,115,0.6)),
+                        url('borgo-magico.jpg') no-repeat center top;
+            background-size: cover;
             color: #fff;
-            padding: 200px 200px;
-            border-radius: 10px;
             text-align: center;
+            min-height: 100vh; /* occupa tutta la pagina */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
         }
 
@@ -103,7 +116,6 @@
             transform: scale(1.05);
             box-shadow: 0 0 50px 10px rgba(255, 180, 255, 0.8);
         }
-
     </style>
 </head>
 <body>
@@ -123,11 +135,10 @@
     </nav>
 
     <section id="mappa">
-        <p>
-            Benvenuto nel mondo magico di AbraCalabria. <b>Esplora borghi, castelli, boschi e leggende come mai prima. 
-            Vivi ogni luogo e ogni racconto con occhi curiosi e cuore coraggioso.</b>
-        </p>
         <div class="bg-magica">
+            <p>
+                Benvenuto nel mondo magico di AbraCalabria. <b>Esplora borghi, castelli, boschi e leggende come mai prima. Vivi ogni luogo e ogni racconto con occhi curiosi e cuore coraggioso.</b>
+            </p>
             <img src="borgo-magico.jpg" alt="Borgo calabrese magico" class="borgo-magico">
             <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
         </div>
