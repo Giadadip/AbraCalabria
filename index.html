@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AbraCalabria</title>
     <style>
-                /* --- Import del font dal file locale --- */
+        /* --- Font personalizzato --- */
         @font-face {
             font-family: 'BloodCrow';
             src: url('bloodcrow.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
+
         /* --- Stile base --- */
         body {
             margin: 0;
@@ -20,15 +21,15 @@
             color: #f5f5f5;
         }
 
-        /* --- Header con effetto magico --- */
+        /* --- Header --- */
         header {
             text-align: center;
-            padding: 20px 20px; /* ridotto per avvicinare il menu */
+            padding: 20px 10px;
             background: rgba(60,0,80,0.7);
         }
 
         header h1 {
-            font-family: 'BloodCrow', Georgia, serif; /* usa il font Blood Crow */
+            font-family: 'BloodCrow', Georgia, serif;
             font-size: 3em;
             margin: 0;
             color: #d9a5ff;
@@ -42,18 +43,19 @@
         }
 
         header p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             margin-top: 10px;
             font-style: italic;
             color: #ffdd99;
         }
 
-        /* --- Menu di navigazione con hover magico --- */
+        /* --- Menu di navigazione --- */
         nav {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 5px 20px; /* ridotto */
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 5px 10px;
             background: rgba(60,0,80,0.9);
             position: sticky;
             top: 0;
@@ -73,29 +75,30 @@
             transform: translateY(-2px);
         }
 
+        /* --- Sezioni --- */
         section {
             max-width: 1200px;
             margin: auto;
+            padding: 40px 20px;
         }
 
         /* --- Intro --- */
         .intro {
             text-align: center;
-            font-size: 1.3em;
+            font-size: 1.2em;
             line-height: 1.8em;
             color: #e0c0ff;
-            padding: 60px 20px;
         }
 
         /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             background: rgba(60,0,80,0.95);
             color: #ffdd99;
         }
 
-        /* --- Sezione Mappa con immagine magica full page --- */
+        /* --- Sezione Hero / Mappa --- */
         .bg-magica {
             position: relative;
             background: linear-gradient(rgba(46,0,62,0.6), rgba(75,0,115,0.6)),
@@ -103,17 +106,24 @@
             background-size: cover;
             color: #fff;
             text-align: center;
-            min-height: 100vh; /* occupa tutta la pagina */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            padding: 20px;
+        }
+
+        .bg-magica p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 10px auto;
         }
 
         .borgo-magico {
             width: 80%;
-            max-width: 700px;
+            max-width: 600px;
             border-radius: 15px;
             box-shadow: 0 0 30px 5px rgba(255, 200, 255, 0.6);
             margin: 20px 0;
@@ -123,6 +133,53 @@
         .borgo-magico:hover {
             transform: scale(1.05);
             box-shadow: 0 0 50px 10px rgba(255, 180, 255, 0.8);
+        }
+
+        /* --- Responsive --- */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            .intro {
+                font-size: 1em;
+            }
+
+            .bg-magica p {
+                font-size: 1em;
+                padding: 0 10px;
+            }
+
+            .borgo-magico {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                font-size: 0.9em;
+            }
+
+            .intro {
+                font-size: 0.95em;
+            }
+
+            .bg-magica p {
+                font-size: 0.95em;
+            }
         }
 
     </style>
@@ -143,14 +200,10 @@
         <a href="#audio">Audio Guide</a>
     </nav>
 
-    <section id="mappa">
-        <div class="bg-magica">
-            <p>
-                Benvenuto nel mondo magico di AbraCalabria. 
-            </p>
-            <img src="borgo-magico.jpg" alt="Borgo calabrese magico" class="borgo-magico">
-            <p>Esplora borghi, castelli, boschi e leggende come mai prima. Vivi ogni luogo e ogni racconto con occhi curiosi e cuore coraggioso.</p>
-        </div>
+    <section id="mappa" class="bg-magica">
+        <p>Benvenuto nel mondo magico di AbraCalabria.</p>
+        <img src="borgo-magico.jpg" alt="Borgo calabrese magico" class="borgo-magico">
+        <p>Esplora borghi, castelli, boschi e leggende come mai prima. Vivi ogni luogo e ogni racconto con occhi curiosi e cuore coraggioso.</p>
     </section>
 
     <section id="favole">
