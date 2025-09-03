@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AbraCalabria</title>
     <style>
+        /* --- Stile base --- */
         body {
             margin: 0;
             font-family: 'Georgia', serif;
@@ -12,6 +13,7 @@
             color: #f5f5f5;
         }
 
+        /* --- Header con effetto magico --- */
         header {
             text-align: center;
             padding: 60px 20px;
@@ -21,17 +23,24 @@
         header h1 {
             font-size: 3em;
             margin: 0;
-            color: #d9a5ff; /* viola chiaro */
-            text-shadow: 2px 2px 8px #000;
+            color: #d9a5ff;
+            text-shadow: 0 0 5px #d9a5ff, 0 0 10px #bb00ff, 0 0 20px #aa00cc;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #d9a5ff, 0 0 10px #bb00ff, 0 0 20px #aa00cc; }
+            100% { text-shadow: 0 0 15px #f5a3ff, 0 0 25px #bb00ff, 0 0 40px #aa00cc; }
         }
 
         header p {
             font-size: 1.3em;
             margin-top: 10px;
             font-style: italic;
-            color: #ffdd99; /* dorato magico */
+            color: #ffdd99;
         }
 
+        /* --- Menu di navigazione con hover magico --- */
         nav {
             display: flex;
             justify-content: center;
@@ -44,14 +53,16 @@
             text-decoration: none;
             color: #f5f5f5;
             font-weight: bold;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
         }
 
         nav a:hover {
             color: #d9a5ff;
-            text-shadow: 1px 1px 5px #000;
+            text-shadow: 1px 1px 5px #fff;
+            transform: translateY(-2px);
         }
 
+        /* --- Sezioni con colori vivaci --- */
         section {
             padding: 60px 20px;
             max-width: 1200px;
@@ -65,12 +76,22 @@
             color: #e0c0ff;
         }
 
+        /* --- Footer --- */
         footer {
             text-align: center;
             padding: 40px 20px;
             background: rgba(60,0,80,0.95);
             color: #ffdd99;
         }
+
+        /* --- Immagine sfondo sezione futura --- */
+        .bg-magica {
+            background: url('images/magia.jpg') no-repeat center/cover;
+            color: #fff;
+            padding: 80px 20px;
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -95,7 +116,7 @@
         </p>
     </section>
 
-    <section id="mappa">
+    <section id="mappa" class="bg-magica">
         <h2>Mappa Interattiva</h2>
         <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
     </section>
