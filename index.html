@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -84,12 +84,29 @@
             color: #ffdd99;
         }
 
-        /* --- Immagine sfondo sezione futura --- */
+        /* --- Sezione Mappa con immagine magica --- */
         .bg-magica {
-            background: url('images/magia.jpg') no-repeat center/cover;
+            position: relative;
+            background: linear-gradient(rgba(46,0,62,0.6), rgba(75,0,115,0.6)), url('images/borgo magico.jpg') no-repeat center/cover;
             color: #fff;
             padding: 80px 20px;
             border-radius: 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .borgo-magico {
+            width: 80%;
+            max-width: 700px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px 5px rgba(255, 200, 255, 0.6);
+            margin: 20px 0;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .borgo-magico:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px 10px rgba(255, 180, 255, 0.8);
         }
 
     </style>
@@ -116,9 +133,12 @@
         </p>
     </section>
 
-    <section id="mappa" class="bg-magica">
+    <section id="mappa">
         <h2>Mappa Interattiva</h2>
-        <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
+        <div class="bg-magica">
+            <img src="images/borgo magico.jpg" alt="Borgo calabrese magico" class="borgo-magico">
+            <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
+        </div>
     </section>
 
     <section id="favole">
