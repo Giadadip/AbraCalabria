@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: 'Georgia', serif;
-            background: linear-gradient(to bottom, #2e003e, #4b0073);
+            background: linear-gradient(to bottom, #2e003e, #4b0073); /* sfondo viola continuo */
             color: #f5f5f5;
         }
 
@@ -80,41 +80,39 @@
             color: #ffdd99;
         }
 
-        /* --- Versione 2: Hero immersiva --- */
-        .hero-magica {
+        /* --- Versione migliorata: immagine più in alto e sfondo esteso --- */
+        .bg-magica-eroe {
             position: relative;
-            background: url('borgo-magico.jpg') no-repeat center center/cover;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-magica .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(46,0,62,0.6), rgba(75,0,115,0.6));
-            z-index: 1;
-        }
-
-        .hero-magica .hero-content {
-            position: relative;
-            z-index: 2;
+            background: linear-gradient(to bottom, rgba(46,0,62,0.7), rgba(75,0,115,0.7));
+            color: #fff;
+            padding: 0;
             text-align: center;
-            color: #e0c0ff;
-            font-size: 1.3em;
-            padding: 0 20px;
+            overflow: hidden;
+            height: 90vh; /* quasi tutta la pagina */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
-        .hero-magica .hero-content p {
-            background: rgba(60,0,80,0.5);
-            padding: 15px 25px;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(200, 150, 255, 0.6);
+        .borgo-magico-eroe {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: cover;
+            object-position: top; /* immagine più in alto */
+            box-shadow: 0 0 40px 10px rgba(180, 100, 255, 0.6);
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .borgo-magico-eroe:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px 15px rgba(200, 120, 255, 0.8);
+        }
+
+        .bg-magica-eroe p {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #e0c0ffcc;
         }
     </style>
 </head>
@@ -140,13 +138,11 @@
         </p>
     </section>
 
-    <!-- Hero immersiva -->
+    <!-- Sezione principale con immagine in alto e sfondo esteso -->
     <section id="mappa">
-        <div class="hero-magica">
-            <div class="overlay"></div>
-            <div class="hero-content">
-                <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
-            </div>
+        <div class="bg-magica-eroe">
+            <img src="images/borgo-magico.jpg" alt="Borgo calabrese magico" class="borgo-magico-eroe">
+            <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
         </div>
     </section>
 
