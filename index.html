@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AbraCalabria</title>
     <style>
+                /* --- Import del font dal file locale --- */
+        @font-face {
+            font-family: 'BloodCrow';
+            src: url('bloodcrow.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
         /* --- Stile base --- */
         body {
             margin: 0;
@@ -16,7 +23,7 @@
         /* --- Header con effetto magico --- */
         header {
             text-align: center;
-            padding: 30px 20px; /* ridotto per avvicinare il menu */
+            padding: 20px 20px; /* ridotto per avvicinare il menu */
             background: rgba(60,0,80,0.7);
         }
 
@@ -45,7 +52,7 @@
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 10px 20px; /* ridotto */
+            padding: 5px 20px; /* ridotto */
             background: rgba(60,0,80,0.9);
             position: sticky;
             top: 0;
@@ -116,6 +123,7 @@
             transform: scale(1.05);
             box-shadow: 0 0 50px 10px rgba(255, 180, 255, 0.8);
         }
+
     </style>
 </head>
 <body>
