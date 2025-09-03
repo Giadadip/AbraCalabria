@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbraCalabria</title>
+    <!-- Stile base -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #1a1a1a, #2e2b3a);
+            color: #f5f5f5;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.7);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #e0c097;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-style: italic;
+            color: #d4af7f;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e0c097;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 1.3em;
+            line-height: 1.8em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.9);
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Calabria Occulta</h1>
+        <p>Leggende, miti e itinerari magici tra i borghi misteriosi</p>
+    </header>
+
+    <nav>
+        <a href="#mappa">Mappa Interattiva</a>
+        <a href="#favole">Favole e Racconti</a>
+        <a href="#itinerari">Itinerari Magici</a>
+        <a href="#autori">Collettivo</a>
+        <a href="#community">Community</a>
+        <a href="#audio">Audio Guide</a>
+    </nav>
+
+    <section class="intro">
+        <p>
+            Benvenuto nel mondo magico della Calabria occulta. Esplora borghi, castelli, boschi e leggende come mai prima. Vivi ogni luogo e ogni racconto con occhi curiosi e cuore coraggioso.
+        </p>
+    </section>
+
+    <section id="mappa">
+        <h2>Mappa Interattiva</h2>
+        <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
+    </section>
+
+    <section id="favole">
+        <h2>Favole e Racconti</h2>
+        <p>Storie originali e reinterpretazioni delle leggende locali.</p>
+    </section>
+
+    <section id="itinerari">
+        <h2>Itinerari Magici</h2>
+        <p>Percorsi reali e virtuali tra luoghi misteriosi della Calabria.</p>
+    </section>
+
+    <section id="autori">
+        <h2>Collettivo di Autori</h2>
+        <p>Scopri chi contribuisce con racconti, immagini e esperienze.</p>
+    </section>
+
+    <section id="community">
+        <h2>Community</h2>
+        <p>Condividi le tue esperienze, racconti o foto dei luoghi visitati.</p>
+    </section>
+
+    <section id="audio">
+        <h2>Podcast e Audio Guide</h2>
+        <p>Ascolta racconti narrati e suoni ambientali per un’esperienza immersiva.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Calabria Occulta – Tutti i diritti riservati</p>
+    </footer>
+
+</body>
+</html>
