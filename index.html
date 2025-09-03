@@ -80,43 +80,7 @@
             color: #ffdd99;
         }
 
-        /* --- Versione 1: immagine subito visibile senza titolo --- */
-        .bg-magica-eroe {
-            position: relative;
-            background: linear-gradient(to bottom, rgba(46,0,62,0.7), rgba(75,0,115,0.7)), url('images/borgo-magico.jpg') no-repeat center top;
-            background-size: cover;
-            color: #fff;
-            padding: 0;
-            border-radius: 0;
-            text-align: center;
-            overflow: hidden;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .borgo-magico-eroe {
-            width: 100%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: cover;
-            box-shadow: 0 0 40px 10px rgba(180, 100, 255, 0.6);
-            transition: transform 0.5s, box-shadow 0.5s;
-        }
-
-        .borgo-magico-eroe:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 60px 15px rgba(200, 120, 255, 0.8);
-        }
-
-        .bg-magica-eroe p {
-            margin: 20px 0;
-            font-size: 1.2em;
-            color: #e0c0ffcc;
-        }
-
-        /* --- Versione 2: Hero immersiva, testo sopra immagine ---
+        /* --- Versione 2: Hero immersiva --- */
         .hero-magica {
             position: relative;
             background: url('images/borgo-magico.jpg') no-repeat center center/cover;
@@ -152,7 +116,6 @@
             border-radius: 15px;
             box-shadow: 0 0 30px rgba(200, 150, 255, 0.6);
         }
-        */
     </style>
 </head>
 <body>
@@ -177,10 +140,44 @@
         </p>
     </section>
 
-    <!-- Versione 1: immagine in alto, senza titolo -->
+    <!-- Hero immersiva -->
     <section id="mappa">
-        <div class="bg-magica-eroe">
-            <img src="images/borgo-magico.jpg" alt="Borgo calabrese magico" class="borgo-magico-eroe">
-            <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
+        <div class="hero-magica">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <p>Qui apparirà la mappa interattiva della Calabria con leggende e miti.</p>
+            </div>
         </div>
     </section>
+
+    <section id="favole">
+        <h2>Favole e Racconti</h2>
+        <p>Storie originali e reinterpretazioni delle leggende locali.</p>
+    </section>
+
+    <section id="itinerari">
+        <h2>Itinerari Magici</h2>
+        <p>Percorsi reali e virtuali tra luoghi misteriosi della Calabria.</p>
+    </section>
+
+    <section id="autori">
+        <h2>Collettivo di Autori</h2>
+        <p>Scopri chi contribuisce con racconti, immagini e esperienze.</p>
+    </section>
+
+    <section id="community">
+        <h2>Community</h2>
+        <p>Condividi le tue esperienze, racconti o foto dei luoghi visitati.</p>
+    </section>
+
+    <section id="audio">
+        <h2>Podcast e Audio Guide</h2>
+        <p>Ascolta racconti narrati e suoni ambientali per un’esperienza immersiva.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 AbraCalabria – Viaggio nella Calabria occulta</p>
+    </footer>
+
+</body>
+</html>
