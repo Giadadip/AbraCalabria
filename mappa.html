@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mappa Magica della Calabria</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(to bottom, #2e003e, #4b0073);
+      color: #f5f5f5;
+      text-align: center;
+    }
+
+    header {
+      background: rgba(60,0,80,0.9);
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #d9a5ff;
+      text-shadow: 0 0 10px #bb00ff, 0 0 20px #aa00cc;
+    }
+
+    .map-wrapper {
+      max-width: 600px;
+      margin: 30px auto;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .province {
+      fill: #2b1e3a;
+      stroke: #d9a5ff;
+      stroke-width: 2;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .province:hover {
+      fill: #4b2e66;
+      filter: drop-shadow(0 0 8px #d9a5ff);
+    }
+
+    dialog {
+      border: none;
+      padding: 20px;
+      border-radius: 10px;
+      background: #1a0d25;
+      color: #fff;
+      max-width: 400px;
+    }
+
+    button {
+      background: #d9a5ff;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mappa Magica della Calabria</h1>
+    <p>Clicca sulle province per scoprire leggende e storie</p>
+  </header>
+
+  <div class="map-wrapper">
+    <svg viewBox="0 0 300 800" xmlns="http://www.w3.org/2000/svg" aria-label="Mappa antica della Calabria">
+      <rect width="100%" height="100%" fill="url(#parchment)" />
+      <path class="province" data-provincia="Cosenza" d="M80 40 L220 40 L200 200 L60 220 Z"/>
+      <path class="province" data-provincia="Crotone" d="M200 200 L260 260 L220 360 L160 300 Z"/>
+      <path class="province" data-provincia="Catanzaro" d="M100 240 L200 200 L160 300 L80 280 Z"/>
+      <path class="province" data-provincia="Vibo Valentia" d="M60 300 L140 320 L120 400 L60 380 Z"/>
+      <path class="province" data-provincia="Reggio Calabria" d="M60 400 L160 420 L140 760 L60 740 Z"/>
+    </svg>
+  </div>
+
+  <dialog id="story-modal">
+    <h3 id="story-title">titolo</h3>
+    <p id="story-text">testo</p>
+    <form method="dialog"><button>chiudi</button></form>
+  </dialog>
+
+  <script>
+    function openStory(title, text){
+      const dlg = document.getElementById('story-modal');
+      document.getElementById('story-title').textContent = title;
+      document.getElementById('story-text').textContent = text;
+      dlg.showModal();
+    }
+
+    document.querySelectorAll('.province').forEach(p=>{
+      p.addEventListener('click',()=>{
+        const prov = p.dataset.provincia;
+        openStory(prov, "Anteprima di leggende e luoghi misteriosi in " + prov + ".");
+      });
+    });
+  </script>
+
+</body>
+</html>
