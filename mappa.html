@@ -8,8 +8,6 @@
 @font-face {
     font-family: 'BloodCrow';
     src: url('bloodcrow.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 body {
@@ -53,7 +51,6 @@ header p {
     margin: 30px auto;
 }
 
-/* Overlay viola */
 .mappa-container::before {
     content: '';
     position: absolute;
@@ -76,7 +73,6 @@ header p {
     z-index:2;
 }
 
-/* Tooltip */
 .tooltip {
     position:absolute;
     background: rgba(0,0,0,0.75);
@@ -91,6 +87,18 @@ header p {
     z-index:3;
 }
 
+.popup {
+    position:absolute;
+    background: rgba(46,0,62,0.95);
+    color:#fff;
+    padding:15px;
+    border-radius:10px;
+    max-width:250px;
+    display:none;
+    z-index:5;
+    text-align:left;
+}
+
 footer {
     padding:20px;
     margin-top:40px;
@@ -99,7 +107,6 @@ footer {
     font-size:0.9em;
 }
 
-/* Canvas particelle */
 #stars {
     position:absolute;
     top:0;
@@ -122,6 +129,7 @@ footer {
     <img src="mappa-calabria-antica.jpg" alt="Mappa della Calabria" class="mappa" id="map">
     <canvas id="stars"></canvas>
     <div class="tooltip" id="tooltip"></div>
+    <div class="popup" id="popup"></div>
 </div>
 
 <footer>
@@ -129,9 +137,10 @@ footer {
 </footer>
 
 <script>
-// Tooltip
+// Tooltip e popup
 const mappa = document.getElementById('map');
 const tooltip = document.getElementById('tooltip');
+const popup = document.getElementById('popup');
 
 mappa.addEventListener('mousemove', (e)=>{
     const rect = mappa.getBoundingClientRect();
@@ -141,6 +150,7 @@ mappa.addEventListener('mousemove', (e)=>{
     tooltip.style.left = `${x + 10}px`;
     tooltip.style.top = `${y + 10}px`;
 
+    // Tooltip zone
     if(x>100 && x<200 && y>100 && y<200){
         tooltip.textContent = "Borgo Magico: luogo di antiche leggende.";
         tooltip.style.display = 'block';
@@ -154,20 +164,42 @@ mappa.addEventListener('mousemove', (e)=>{
 
 mappa.addEventListener('mouseleave', ()=>{ tooltip.style.display='none'; });
 
-// Particelle scintillanti
+// Popup al click
+mappa.addEventListener('click', (e)=>{
+    const rect = mappa.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if(x>100 && x<200 && y>100 && y<200){
+        popup.innerHTML = "<strong>Borgo Magico</strong><br>Antiche leggende e storie misteriose.";
+        popup.style.left = `${x+15}px`;
+        popup.style.top = `${y+15}px`;
+        popup.style.display='block';
+    } else if(x>300 && x<400 && y>300 && y<400){
+        popup.innerHTML = "<strong>Castello Incantato</strong><br>Dimora di spiriti e antichi rituali.";
+        popup.style.left = `${x+15}px`;
+        popup.style.top = `${y+15}px`;
+        popup.style.display='block';
+    } else {
+        popup.style.display='none';
+    }
+});
+
+// Particelle scure (viola / quasi nere)
 const canvas = document.getElementById('stars');
 const ctx = canvas.getContext('2d');
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 
 const particles = [];
-for(let i=0;i<50;i++){
+for(let i=0;i<80;i++){
     particles.push({
         x: Math.random()*canvas.width,
         y: Math.random()*canvas.height,
-        r: Math.random()*2+1,
-        dx: (Math.random()-0.5)*0.5,
-        dy: (Math.random()-0.5)*0.5
+        r: Math.random()*1.5+0.5,
+        dx: (Math.random()-0.5)*0.3,
+        dy: (Math.random()-0.5)*0.3,
+        color: `rgba(50,0,50,0.7)` // viola scuro
     });
 }
 
@@ -176,7 +208,7 @@ function animate(){
     for(let p of particles){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle='rgba(217,165,255,0.7)';
+        ctx.fillStyle = p.color;
         ctx.fill();
         p.x += p.dx;
         p.y += p.dy;
@@ -187,7 +219,6 @@ function animate(){
 }
 animate();
 
-// Aggiorna dimensioni canvas al resize
 window.addEventListener('resize',()=>{
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
