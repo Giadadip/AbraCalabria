@@ -4,25 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mappa Interattiva della Calabria Magica</title>
+
+<!-- Font BloodCrow locale -->
 <style>
 @font-face {
     font-family: 'BloodCrow';
     src: url('bloodcrow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
+/* --- Stile base --- */
 body {
     margin: 0;
     font-family: 'Georgia', serif;
     background: url('texture-parchment.jpg') repeat;
-    color: #3b2a1a;
+    color: #f5f5f5;
     text-align: center;
     position: relative;
     overflow-x: hidden;
 }
 
+/* Canvas stelle */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* sotto tutti gli elementi */
+}
+
 header {
     padding: 30px 10px 10px 10px;
-    background: rgba(60,0,80,0.4);
+    background: rgba(60,0,80,0.7);
     position: relative;
     z-index: 2;
 }
@@ -88,16 +104,6 @@ header p {
     display: none;
     z-index: 5;
     text-align: left;
-}
-
-#stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1; /* sotto tutto */
 }
 
 footer {
@@ -177,7 +183,7 @@ mappa.addEventListener('click', (e)=>{
     }
 });
 
-// Particelle sullo sfondo
+// Particelle sullo sfondo full-page
 const canvas = document.getElementById('stars');
 const ctx = canvas.getContext('2d');
 
@@ -187,7 +193,6 @@ function resizeCanvas() {
     ctx.setTransform(1,0,0,1,0,0);
     ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
 }
-
 resizeCanvas();
 window.addEventListener('resize', () => {
     resizeCanvas();
@@ -197,14 +202,14 @@ window.addEventListener('resize', () => {
 let particles = [];
 function initParticles() {
     particles = [];
-    for(let i=0;i<80;i++){
+    for(let i=0;i<100;i++){
         particles.push({
             x: Math.random()*window.innerWidth,
             y: Math.random()*window.innerHeight,
-            r: Math.random()*1.5+0.5,
+            r: Math.random()*2+0.5,
             dx: (Math.random()-0.5)*0.3,
             dy: (Math.random()-0.5)*0.3,
-            color: `rgba(50,0,50,1)` // viola scuro
+            color: `rgba(50,0,50,0.8)` // viola scuro
         });
     }
 }
