@@ -3,28 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calabria Magica - Mappa Interattiva</title>
+    <title>Mappa Interattiva della Calabria Magica</title>
+
+    <!-- Font antico elegante da Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* --- Stile base --- */
         body {
             margin: 0;
             font-family: 'Georgia', serif;
-            background: url('texture-parchment.jpg') repeat;
+            background-color: #fdf6e3; /* colore pergamena chiaro */
             color: #3b2a1a;
             text-align: center;
         }
 
         header {
-            padding: 20px;
+            padding: 30px 10px 10px 10px;
         }
 
         header h1 {
-            font-size: 3em;
-            color: #d9a5ff;
-            text-shadow: 0 0 5px #d9a5ff, 0 0 10px #bb00ff, 0 0 20px #aa00cc;
+            font-family: 'Cinzel', serif;
+            font-size: 2.8em;
+            color: #6b3e26;
+            text-shadow: 1px 1px 3px #fff, 0 0 10px rgba(107, 62, 38, 0.5);
+            margin: 0;
         }
 
-        /* --- Mappa interattiva --- */
+        header p {
+            font-size: 1.2em;
+            color: #5a4032;
+            margin-top: 5px;
+        }
+
         .mappa-container {
             position: relative;
             width: 90%;
@@ -34,50 +44,45 @@
 
         .mappa {
             width: 100%;
-            border: 5px solid #d9a5ff;
-            border-radius: 15px;
-            box-shadow: 0 0 30px 5px rgba(255, 200, 255, 0.6);
-            transition: transform 0.5s, box-shadow 0.5s;
-        }
-
-        .mappa:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px 10px rgba(255, 180, 255, 0.8);
+            border: 3px solid #a67850;
+            border-radius: 10px;
+            /* Effetto antico e magico */
+            filter: sepia(0.4) contrast(1.2) brightness(0.95);
+            box-shadow: 0 0 25px rgba(107,62,38,0.4);
         }
 
         /* Tooltip */
         .tooltip {
             position: absolute;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.75);
             color: #fff;
             padding: 10px;
             border-radius: 8px;
-            font-size: 1.1em;
+            font-size: 1em;
             max-width: 300px;
             display: none;
             pointer-events: none;
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
         }
 
-        /* Footer */
         footer {
             padding: 20px;
             margin-top: 40px;
-            background: rgba(60,0,80,0.7);
-            color: #ffdd99;
+            background: #6b3e26;
+            color: #fdf6e3;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Calabria Magica</h1>
-        <p>Esplora i luoghi, le leggende e i misteri della Calabria</p>
+        <h1>Mappa Interattiva della Calabria Magica</h1>
+        <p>Esplora borghi, castelli e leggende del territorio calabrese</p>
     </header>
 
     <div class="mappa-container">
-        <!-- Immagine mappa vintage -->
-        <img src="mappa-calabria-antica.png" alt="Mappa Antica della Calabria" class="mappa">
+        <img src="calabria_relief_map.png" alt="Mappa della Calabria" class="mappa">
         <div class="tooltip" id="tooltip"></div>
     </div>
 
@@ -97,7 +102,7 @@
             tooltip.style.left = `${x + 10}px`;
             tooltip.style.top = `${y + 10}px`;
 
-            // Esempio: tooltip per zone della mappa
+            // Esempio tooltip zone
             if(x > 100 && x < 200 && y > 100 && y < 200){
                 tooltip.textContent = "Borgo Magico: luogo di antiche leggende.";
                 tooltip.style.display = 'block';
