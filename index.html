@@ -1,239 +1,77 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AbraCalabria</title>
-    <style>
-        /* --- Font personalizzato --- */
-        @font-face {
-            font-family: 'BloodCrow';
-            src: url('bloodcrow.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* --- Stile base --- */
-        body {
-            margin: 0;
-            font-family: 'Georgia', serif;
-            background: linear-gradient(to bottom, #2e003e, #4b0073);
-            color: #f5f5f5;
-        }
-
-        /* --- Header --- */
-        header {
-            text-align: center;
-            padding: 20px 10px;
-            background: rgba(60,0,80,0.7);
-        }
-
-        header h1 {
-            font-family: 'BloodCrow', Georgia, serif;
-            font-size: 3em;
-            margin: 0;
-            color: #d9a5ff;
-            text-shadow: 0 0 5px #d9a5ff, 0 0 10px #bb00ff, 0 0 20px #aa00cc;
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 5px #d9a5ff, 0 0 10px #bb00ff, 0 0 20px #aa00cc; }
-            100% { text-shadow: 0 0 15px #f5a3ff, 0 0 25px #bb00ff, 0 0 40px #aa00cc; }
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-            font-style: italic;
-            color: #ffdd99;
-        }
-
-        /* --- Menu di navigazione --- */
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 5px 10px;
-            background: rgba(60,0,80,0.9);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #f5f5f5;
-            font-weight: bold;
-            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
-        }
-
-        nav a:hover {
-            color: #d9a5ff;
-            text-shadow: 1px 1px 5px #fff;
-            transform: translateY(-2px);
-        }
-
-        /* --- Sezioni --- */
-        section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        /* --- Intro --- */
-        .intro {
-            text-align: center;
-            font-size: 1.2em;
-            line-height: 1.8em;
-            color: #e0c0ff;
-        }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(60,0,80,0.95);
-            color: #ffdd99;
-        }
-
-        /* --- Sezione Hero / Mappa --- */
-        .bg-magica {
-            position: relative;
-            background: linear-gradient(rgba(46,0,62,0.6), rgba(75,0,115,0.6)),
-                        url('borgo-magico.jpg') no-repeat center top;
-            background-size: cover;
-            color: #fff;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            padding: 20px;
-        }
-
-        .bg-magica p {
-            font-size: 1.1em;
-            max-width: 700px;
-            margin: 10px auto;
-        }
-
-        .borgo-magico {
-            width: 80%;
-            max-width: 600px;
-            border-radius: 15px;
-            box-shadow: 0 0 30px 5px rgba(255, 200, 255, 0.6);
-            margin: 20px 0;
-            transition: transform 0.5s, box-shadow 0.5s;
-        }
-
-        .borgo-magico:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px 10px rgba(255, 180, 255, 0.8);
-        }
-
-        /* --- Responsive --- */
-        @media screen and (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
-            }
-
-            header p {
-                font-size: 1em;
-            }
-
-            nav {
-                gap: 10px;
-            }
-
-            .intro {
-                font-size: 1em;
-            }
-
-            .bg-magica p {
-                font-size: 1em;
-                padding: 0 10px;
-            }
-
-            .borgo-magico {
-                width: 90%;
-                max-width: 400px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            nav a {
-                font-size: 0.9em;
-            }
-
-            .intro {
-                font-size: 0.95em;
-            }
-
-            .bg-magica p {
-                font-size: 0.95em;
-            }
-        }
-
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>—— Calabria magica — progetto immersivo</title>
+  <style>
+    body{margin:0;background:#0d0b13;color:#f5f0ff;font-family:sans-serif}
+    header,footer{padding:1rem;text-align:center;background:#161323}
+    .section{padding:2rem}
+    h2{font-family:serif;color:#a77bff}
+    .map-wrapper{max-width:600px;margin:0 auto;}
+    svg{width:100%;height:auto;}
+    .province{fill:#20182e;stroke:#a77bff;stroke-width:1;cursor:pointer;transition:.3s;}
+    .province:hover{fill:#3b2f4d;filter:drop-shadow(0 0 6px #a77bff)}
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Calabria magica</h1>
+  </header>
+  
+  <main>
+    <section id="mappa" class="section">
+      <h2>mappa interattiva (versione antica‑magica)</h2>
+      <p>Clicca sulle province per aprire leggende e luoghi.</p>
+      <div class="map-wrapper">
+        <!-- mappa Calabria stilizzata -->
+        <svg viewBox="0 0 300 800" xmlns="http://www.w3.org/2000/svg" aria-label="mappa antica della Calabria">
+          <defs>
+            <radialGradient id="parchment" cx="50%" cy="50%" r="80%">
+              <stop offset="0%" stop-color="#2a213a"/>
+              <stop offset="100%" stop-color="#0d0b13"/>
+            </radialGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#parchment)"/>
 
-    <header>
-        <h1>AbraCalabria</h1>
-        <p>Viaggio nella Calabria occulta, tra miti, leggende e luoghi magici</p>
-    </header>
-
-    <nav>
-        <a href="#mappa">Mappa Interattiva</a>
-        <a href="#favole">Favole e Racconti</a>
-        <a href="#itinerari">Itinerari Magici</a>
-        <a href="#autori">Collettivo</a>
-        <a href="#community">Community</a>
-        <a href="#audio">Audio Guide</a>
-    </nav>
-
-    <section id="mappa" class="bg-magica">
-        <p>Benvenuto nel mondo magico di AbraCalabria.</p>
-        <img src="borgo-magico.jpg" alt="Borgo calabrese magico" class="borgo-magico">
-        <p>Esplora borghi, castelli, boschi e leggende come mai prima. Vivi ogni luogo e ogni racconto con occhi curiosi e cuore coraggioso.</p>
+          <!-- sagome semplificate delle province -->
+          <path class="province" data-province="Cosenza" d="M80 40 L220 40 L200 200 L60 220 Z" />
+          <path class="province" data-province="Crotone" d="M200 200 L260 260 L220 360 L160 300 Z" />
+          <path class="province" data-province="Catanzaro" d="M100 240 L200 200 L160 300 L80 280 Z" />
+          <path class="province" data-province="Vibo Valentia" d="M60 300 L140 320 L120 400 L60 380 Z" />
+          <path class="province" data-province="Reggio Calabria" d="M60 400 L160 420 L140 760 L60 740 Z" />
+        </svg>
+      </div>
     </section>
+  </main>
 
-    <section id="favole">
-        <h2>Favole e Racconti</h2>
-        <p>Storie originali e reinterpretazioni delle leggende locali.</p>
-    </section>
+  <dialog id="story-modal">
+    <h3 id="story-title">titolo</h3>
+    <p id="story-text">testo</p>
+    <form method="dialog"><button>chiudi</button></form>
+  </dialog>
 
-    <section id="itinerari">
-        <h2>Itinerari Magici</h2>
-        <p>Percorsi reali e virtuali tra luoghi misteriosi della Calabria.</p>
-    </section>
+  <footer>
+    <small>© <span id="year"></span> — Calabria magica</small>
+  </footer>
 
-    <section id="autori">
-        <h2>Collettivo di Autori</h2>
-        <p>Scopri chi contribuisce con racconti, immagini e esperienze.</p>
-    </section>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    <section id="community">
-        <h2>Community</h2>
-        <p>Condividi le tue esperienze, racconti o foto dei luoghi visitati.</p>
-    </section>
+    function openStory(title, text){
+      const dlg = document.getElementById('story-modal');
+      document.getElementById('story-title').textContent = title;
+      document.getElementById('story-text').textContent = text;
+      dlg.showModal();
+    }
 
-    <section id="audio">
-        <h2>Podcast e Audio Guide</h2>
-        <p>Ascolta racconti narrati e suoni ambientali per un’esperienza immersiva.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 AbraCalabria – Viaggio nella Calabria occulta</p>
-    </footer>
-
+    document.querySelectorAll('.province').forEach(p=>{
+      p.addEventListener('click',()=>{
+        const prov = p.dataset.province;
+        openStory(prov, 'Anteprima di leggende e luoghi legati a '+prov+'.');
+      });
+    });
+  </script>
 </body>
 </html>
