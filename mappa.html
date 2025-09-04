@@ -73,16 +73,16 @@
     <p>Clicca sulle province per scoprire leggende e storie</p>
   </header>
 
-  <div class="map-wrapper">
-    <svg viewBox="0 0 300 800" xmlns="http://www.w3.org/2000/svg" aria-label="Mappa antica della Calabria">
-      <rect width="100%" height="100%" fill="url(#parchment)" />
-      <path class="province" data-provincia="Cosenza" d="M80 40 L220 40 L200 200 L60 220 Z"/>
-      <path class="province" data-provincia="Crotone" d="M200 200 L260 260 L220 360 L160 300 Z"/>
-      <path class="province" data-provincia="Catanzaro" d="M100 240 L200 200 L160 300 L80 280 Z"/>
-      <path class="province" data-provincia="Vibo Valentia" d="M60 300 L140 320 L120 400 L60 380 Z"/>
-      <path class="province" data-provincia="Reggio Calabria" d="M60 400 L160 420 L140 760 L60 740 Z"/>
-    </svg>
-  </div>
+ <div class="map-vintage">
+  <img src="mappa-vintage.jpg" alt="Mappa antica della Calabria" usemap="#calabria-map">
+  <map name="calabria-map">
+    <area shape="poly" coords="120,50,180,70,160,140,100,120" 
+          alt="Cosenza" 
+          href="#" 
+          onclick="openStory('Cosenza', 'Leggende cosentine...')">
+    <!-- aggiungi le altre province -->
+  </map>
+</div>
 
   <dialog id="story-modal">
     <h3 id="story-title">titolo</h3>
